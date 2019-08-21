@@ -1,5 +1,9 @@
-const message = "Your Webpack application is set up and ready to go. Please start writing code."
+import data from "./data.js";
+import dom from "./dom.js";
+import interestMod from "./interestMod.js";
 
-document.querySelector("#container").innerHTML = `<h1>${message}</h1>`
+data.getInterests("interests").then(parsedInterests => {
+    console.log(parsedInterests);
+});
 
-console.log(message)
+interestMod.displayInterests();

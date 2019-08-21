@@ -1,24 +1,45 @@
 {
-  "posts": [
+  "places": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Iowa",
+      "visa_required": false
     },
     {
       "id": 2,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Wisconsin",
+      "visa_required": false
+    },
+    {
+      "id": 3,
+      "name": "Hawaii",
+      "visa_required": false
     }
   ],
-  "comments": [
+  "interests": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "placeId": 1,
+      "name": "Iowa 80 Truck Stop",
+      "description": "The largest truck stop in the world",
+      "cost": 0.00,
+      "review": ""
+    },
+    {
+      "id": 2,
+      "placeId": 2,
+      "name": "Green Bay Packers football game",
+      "description": "The Green Bay Packers are a professional football team in the National Football League. They play their home games at Lambeau Field in Green Bay, Wisconsin.",
+      "cost": 150.00,
+      "review": ""
+    },
+    {
+      "id": 3,
+      "placeId": 3,
+      "name": "Lanikai Beach",
+      "description": "Lanikai beach on the island of Oahu, Hawaii is one of the best beaches in the world.",
+      "cost": 0.00,
+      "review": ""
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
