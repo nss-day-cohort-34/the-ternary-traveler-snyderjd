@@ -6,6 +6,8 @@ const dom = Object.create({
                     <p class="interest__item--description">Description: ${interestObject.description}</p>
                     <p class="interest__item--cost">Cost: ${interestObject.cost}</p>
                     <p class="interest__item--review">Review: ${interestObject.review}</p>
+                    <button class="interest__item--edit interest__edit--${interestObject.id}">Edit</button>
+                    <button class="interest__item--delete interest__delete--${interestObject.id}">Delete</button>
                 </section>`;
     },
 
