@@ -13,6 +13,10 @@ const dom = Object.create({
 
     addToDOM: (container, HTMLString) => {
         container.innerHTML += HTMLString;
+    },
+
+    createInterestForm: () => {
+
     }
 });
 
