@@ -22,13 +22,13 @@ const interestMod = Object.create({
         });
     },
 
-    createNewInterestObject: (placeId, name, description, cost) => {
+    createNewInterestObject: (placeId, name, description, cost, review) => {
         return {
             placeId: placeId,
             name: name,
             description: description,
             cost: cost,
-            review: ""
+            review: review
         };
     },
 

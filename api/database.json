@@ -18,12 +18,12 @@
   ],
   "interests": [
     {
-      "id": 1,
       "placeId": 1,
       "name": "Iowa 80 Truck Stop",
       "description": "The largest truck stop in the world",
-      "cost": 0,
-      "review": ""
+      "cost": 10,
+      "review": "It was awesome",
+      "id": 1
     },
     {
       "id": 2,
