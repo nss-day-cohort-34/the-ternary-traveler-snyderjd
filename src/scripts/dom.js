@@ -19,13 +19,15 @@ const dom = Object.create({
 
     createInterestForm: () => {
         const formHTML =    `<section class="interest__form--fields">
-                                <input type="hidden" id="interestId" value=""/>
+                                <input type="hidden" id="interestId" class="interestId--hidden" value=""/>
                                 <label for="interest__form--name">Name </label>
                                 <input id="interest__form--name" class="interest__form--name" type="text">
                                 <label for="interest__form--desc">Description </label>
                                 <input id="interest__form--desc" class="interest__form--desc" type="text">
                                 <label for="interest__form--cost">Cost </label>
                                 <input id="interest__form--cost" class="interest__form--cost" type="text">
+                                <label for="interest__form--review" class="review__label hidden">Review </label>
+                                <input id="interest__form--review" class="interest__form--review hidden" type="text">
                                 <label for="interest__form--place">Place </label>
                                 <select name="placeList" id="interest__form--place" class="interest__form--place">
                                 </select>

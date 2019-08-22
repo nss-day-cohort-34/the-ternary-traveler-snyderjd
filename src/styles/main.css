@@ -1,11 +1,16 @@
 .interest__form--fields {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 30%;
     margin: auto;
     border: 3px solid red;
     background-color: whitesmoke;
     margin-bottom: 30px;
+    padding: 10px;
+}
+
+.interest__form--fields button {
+    margin: 10px;
 }
 
 .interests__container {
@@ -19,8 +24,13 @@
     background-color: whitesmoke;
     border: 3px solid blue;
     padding: 10px;
+    margin: 20px;
 }
 
 .interest__item--place {
     font-size: 14pt;
+}
+
+.hidden {
+    display: none;
 }

@@ -4,6 +4,11 @@ const data = Object.create({
             .then(response => response.json());
     },
 
+    getInterest: (interestId) => {
+        return fetch(`http://localhost:8088/interests/${interestId}?_expand=place`)
+            .then(response => response.json());
+    },
+
     getPlaces: () => {
         return fetch("http://localhost:8088/places")
             .then(response => response.json());
@@ -18,7 +23,19 @@ const data = Object.create({
             body: JSON.stringify(interestObject)
         })
             .then(response => response.json());
+    },
+
+    editInterest: (interestObject, interestId) => {
+        return fetch(`http://localhost:8088/interests/${interestId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(interestObject)
+        })
+            .then(response => response.json());
     }
+
 });
 
 export default data;
