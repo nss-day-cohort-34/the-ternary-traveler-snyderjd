@@ -6,6 +6,7 @@ import placesMod from "./placesMod.js";
 
 interestMod.displayInterestsPage();
 dom.renderPlaceForm();
+placesMod.displayPlaces();
 
 const submitButton = document.querySelector(".interest__form--submit");
 submitButton.addEventListener("click", event => {
@@ -141,5 +142,11 @@ submitPlaceButton.addEventListener("click", event => {
         placeName.value = "";
         addPlaceDialog.close();
     });
+});
+
+// Close add place form if user clicks "cancel"
+const cancelAddPlace = document.querySelector(".place__form--cancel");
+cancelAddPlace.addEventListener("click", event => {
+    addPlaceDialog.close();
 });
 

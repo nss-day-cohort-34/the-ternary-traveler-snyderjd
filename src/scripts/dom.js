@@ -13,6 +13,14 @@ const dom = Object.create({
                 </section>`;
     },
 
+    createPlaceHTML: (placeObject) => {
+        return `<section class="place__item place__item--${placeObject.id}">
+                    <h2>${placeObject.name}</h2>
+                    <h4>Visa Required: ${placeObject.visa_required ? "Yes" : "No"}</h4>
+                    <button class="place__item--delete place__delete--${placeObject.id}">Delete</button>
+                </section>`;
+    },
+
     addToDOM: (container, HTMLString) => {
         container.innerHTML += HTMLString;
     },

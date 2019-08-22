@@ -19,6 +19,11 @@
       "name": "Nashville",
       "visa_required": false,
       "id": 4
+    },
+    {
+      "name": "New York City",
+      "visa_required": false,
+      "id": 5
     }
   ],
   "interests": [
@@ -45,6 +50,14 @@
       "cost": 0,
       "review": "Had a very nice day at the beach",
       "id": 3
+    },
+    {
+      "placeId": 4,
+      "name": "The Parthenon",
+      "description": "Life size replica of the Parthenon",
+      "cost": 6,
+      "review": "Very cool.",
+      "id": 4
     }
   ]
 }
