@@ -19,6 +19,7 @@ const dom = Object.create({
 
     createInterestForm: () => {
         const formHTML =    `<section class="interest__form--fields">
+                                <h2>Add/Edit Point of Interest</h2>
                                 <input type="hidden" id="interestId" class="interestId--hidden" value=""/>
                                 <label for="interest__form--name">Name </label>
                                 <input id="interest__form--name" class="interest__form--name" type="text">

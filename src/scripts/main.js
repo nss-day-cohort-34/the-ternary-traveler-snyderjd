@@ -14,12 +14,11 @@ submitButton.addEventListener("click", event => {
     const hiddenInput = document.querySelector(".interestId--hidden");
     const interestReview = document.querySelector(".interest__form--review");
 
-
-
     // Get interests and check place to get the placeId
     const placeInput = document.querySelector(".interest__form--place");
     console.log(placeInput.value);
 
+    // Save a new interest if hiddenInput field is blank
     if (hiddenInput.value === "") {
 
         data.getPlaces().then(parsedPlaces => {
@@ -45,6 +44,7 @@ submitButton.addEventListener("click", event => {
                 .then(interestMod.displayInterests);
         });
     } else {
+        // Edit the point of interest if hiddenInput field is not blank
         data.getPlaces().then(parsedPlaces => {
             let placeId = 0;
             parsedPlaces.forEach(place => {
@@ -63,7 +63,16 @@ submitButton.addEventListener("click", event => {
                 interestReview.value);
 
             data.editInterest(editedInterest, hiddenInput.value)
-                .then(interestMod.displayInterests);
+                .then(interestMod.displayInterests)
+                .then(() => {
+                    hiddenInput.value = "";
+                    interestReview.classList.add("hidden");
+                    document.querySelector(".review__label").classList.add("hidden");
+                    interestName.value = "";
+                    interestDescription.value = "";
+                    interestReview.value = "";
+                    interestCost.value = "";
+                });
         });
     }
 
@@ -98,6 +107,15 @@ interestsContainer.addEventListener("click", event => {
             interestReview.classList.remove("hidden");
             reviewLabel.classList.remove("hidden");
         });
+        // Delete point of interest if user clicks on delete button and confirms it
+    } else if (event.target.classList[0].startsWith("interest__item--delete")) {
+        const interestId = event.target.classList[1].split("--")[1];
+        console.log(interestId);
+        const message = "Are you sure you want to delete this point of interest?";
+
+        if (window.confirm(message)) {
+            data.deleteInterest(interestId).then(interestMod.displayInterests);
+        }
     }
 });
 

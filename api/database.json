@@ -34,28 +34,12 @@
       "review": ""
     },
     {
-      "id": 3,
       "placeId": 3,
       "name": "Lanikai Beach",
       "description": "Lanikai beach on the island of Oahu, Hawaii is one of the best beaches in the world.",
       "cost": 0,
-      "review": ""
-    },
-    {
-      "placeId": 1,
-      "name": "RAGBRAI",
-      "description": "RAGBRAI",
-      "cost": 100,
-      "review": "",
-      "id": 4
-    },
-    {
-      "placeId": 2,
-      "name": "State Fair",
-      "description": "Wisconsin State Fair",
-      "cost": 20,
-      "review": "",
-      "id": 5
+      "review": "Had a very nice day at the beach",
+      "id": 3
     }
   ]
 }

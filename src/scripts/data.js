@@ -34,6 +34,13 @@ const data = Object.create({
             body: JSON.stringify(interestObject)
         })
             .then(response => response.json());
+    },
+
+    // Delete an interest from the database
+    deleteInterest: (interestId) => {
+        return fetch(`http://localhost:8088/interests/${interestId}`, {
+            method: "DELETE"
+        }).then(response => response.json());
     }
 
 });
