@@ -13,6 +13,8 @@ const placesMod = Object.create({
     displayPlaces: () => {
         const placesContainer = document.querySelector(".places__container");
         data.getPlaces().then(parsedPlaces => {
+            placesContainer.innerHTML = "";
+
             parsedPlaces.forEach(place => {
                 const placeHTML = dom.createPlaceHTML(place);
                 dom.addToDOM(placesContainer, placeHTML);

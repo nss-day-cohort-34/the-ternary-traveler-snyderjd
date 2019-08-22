@@ -29,8 +29,6 @@ submitButton.addEventListener("click", event => {
             parsedPlaces.forEach(place => {
                 if (placeInput.value === place.name) {
                     placeId = place.id;
-                    console.log(place);
-                    console.log(placeId);
                 }
             });
             return placeId;
@@ -81,14 +79,13 @@ submitButton.addEventListener("click", event => {
 
 });
 
+// Listen for clicks on edit or delete buttons inside the interests container
 const interestsContainer = document.querySelector(".interests__container");
 interestsContainer.addEventListener("click", event => {
 
     if (event.target.classList[0].startsWith("interest__item--edit")) {
-        console.log(event.target.classList);
         // Get the id of the interest whose edit button was clicked
         const interestId = event.target.classList[1].split("--")[1];
-        console.log(interestId);
         // Get the respective interest from database and use its data to fill the input fields
         data.getInterest(interestId).then(interest => {
 
@@ -113,7 +110,6 @@ interestsContainer.addEventListener("click", event => {
         // Delete point of interest if user clicks on delete button and confirms it
     } else if (event.target.classList[0].startsWith("interest__item--delete")) {
         const interestId = event.target.classList[1].split("--")[1];
-        console.log(interestId);
         const message = "Are you sure you want to delete this point of interest?";
 
         if (window.confirm(message)) {
@@ -131,6 +127,7 @@ addPlaceButton.addEventListener("click", event => {
     addPlaceDialog.showModal();
 });
 
+// Save a new place with user's inputs from the Add New Place form
 const submitPlaceButton = document.querySelector(".place__form--submit");
 submitPlaceButton.addEventListener("click", event => {
     const placeName = document.querySelector(".place__form--place");
@@ -148,5 +145,19 @@ submitPlaceButton.addEventListener("click", event => {
 const cancelAddPlace = document.querySelector(".place__form--cancel");
 cancelAddPlace.addEventListener("click", event => {
     addPlaceDialog.close();
+});
+
+// Listen to places container for clicks on a delete button
+const placesContainer = document.querySelector(".places__container");
+placesContainer.addEventListener("click", event => {
+    console.log(event.target.classList);
+    const placeId = event.target.classList[1].split("--")[1];
+    console.log(placeId);
+    const message = "Are you sure you want to delete this place?";
+
+    if (event.target.classList[1].startsWith("place__delete") && window.confirm(message)) {
+        data.deletePlace(placeId).then(placesMod.displayPlaces);
+    }
+
 });
 

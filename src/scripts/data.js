@@ -43,6 +43,12 @@ const data = Object.create({
         }).then(response => response.json());
     },
 
+    deletePlace: (placeId) => {
+        return fetch(`http://localhost:8088/places/${placeId}`, {
+            method: "DELETE"
+        }).then(response => response.json());
+    },
+
     savePlace: (placeObject) => {
         return fetch("http://localhost:8088/places", {
             method: "POST",
