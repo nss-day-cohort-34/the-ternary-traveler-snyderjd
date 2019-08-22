@@ -14,6 +14,11 @@
       "id": 3,
       "name": "Hawaii",
       "visa_required": false
+    },
+    {
+      "name": "Nashville",
+      "visa_required": false,
+      "id": 4
     }
   ],
   "interests": [
