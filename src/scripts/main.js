@@ -1,9 +1,11 @@
 import data from "./data.js";
 import dom from "./dom.js";
 import interestMod from "./interestMod.js";
+import placesMod from "./placesMod.js";
 
 
 interestMod.displayInterestsPage();
+dom.renderPlaceForm();
 
 const submitButton = document.querySelector(".interest__form--submit");
 submitButton.addEventListener("click", event => {
@@ -117,5 +119,27 @@ interestsContainer.addEventListener("click", event => {
             data.deleteInterest(interestId).then(interestMod.displayInterests);
         }
     }
+});
+
+// Functionality to add or remove places
+
+const addPlaceButton = document.querySelector(".addPlace__button");
+const addPlaceDialog = document.querySelector(".addPlace__container");
+
+addPlaceButton.addEventListener("click", event => {
+    addPlaceDialog.showModal();
+});
+
+const submitPlaceButton = document.querySelector(".place__form--submit");
+submitPlaceButton.addEventListener("click", event => {
+    const placeName = document.querySelector(".place__form--place");
+    const placeVisa = document.querySelector(".place__form--visa");
+
+    const newPlace = placesMod.createPlaceObject(placeName.value, placeVisa.value);
+
+    data.savePlace(newPlace).then(() => {
+        placeName.value = "";
+        addPlaceDialog.close();
+    });
 });
 

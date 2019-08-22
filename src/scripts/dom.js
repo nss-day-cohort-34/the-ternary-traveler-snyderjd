@@ -17,6 +17,21 @@ const dom = Object.create({
         container.innerHTML += HTMLString;
     },
 
+    createPlaceForm: () => {
+        return `<section class="place__form--fields">
+                    <h2>Add New Place</h2>
+                    <label for="place__form--name" class="place__form--name">Name </label>
+                    <input class="place__form--place" type="text">
+                    <label for="place__form--visa">Visa Required </label>
+                    <select name="place__form--visa" class="place__form--visa">
+                        <option v-bind:value="true">Yes</option>
+                        <option v-bind:value="false">No</option>
+                    </select>
+                    <button class="place__form--submit">Add Place</button>
+                    <button class="place__form--cancel">Cancel</button>
+                </section>`;
+    },
+
     createInterestForm: () => {
         const formHTML =    `<section class="interest__form--fields">
                                 <h2>Add/Edit Point of Interest</h2>
@@ -53,6 +68,12 @@ const dom = Object.create({
         const interestForm = dom.createInterestForm();
         dom.addToDOM(interestFormContainer, interestForm);
         dom.createOptionsHTML();
+    },
+
+    renderPlaceForm: () => {
+        const placeFormContainer = document.querySelector(".addPlace__container");
+        const placeFormHTML = dom.createPlaceForm();
+        dom.addToDOM(placeFormContainer, placeFormHTML);
     }
 });
 
