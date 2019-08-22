@@ -1,3 +1,5 @@
+import data from "./data.js";
+
 const dom = Object.create({
     createInterestHTML: (interestObject) => {
         return `<section class="interest__item interest__item--${interestObject.id}">
@@ -15,18 +17,39 @@ const dom = Object.create({
         container.innerHTML += HTMLString;
     },
 
-    renderInterestForm: () => {
+    createInterestForm: () => {
         const formHTML =    `<section class="interest__form--fields">
                                 <input type="hidden" id="interestId" value=""/>
                                 <label for="interest__form--name">Name </label>
-                                <input id="interest__form--name type="text">
+                                <input id="interest__form--name" class="interest__form--name" type="text">
                                 <label for="interest__form--desc">Description </label>
-                                <input id="interest__form--desc" type="text">
+                                <input id="interest__form--desc" class="interest__form--desc" type="text">
                                 <label for="interest__form--cost">Cost </label>
-                                <input id="interest__form--cost" type="text">
+                                <input id="interest__form--cost" class="interest__form--cost" type="text">
                                 <label for="interest__form--place">Place </label>
-                                <select name="placeList" id="interest__form--place" class="mood">
-                                </select>`
+                                <select name="placeList" id="interest__form--place" class="interest__form--place">
+                                </select>
+                                <button class="interest__form--submit">Submit</button>
+                            </section>`;
+        return formHTML;
+    },
+
+    createOptionsHTML: () => {
+        data.getPlaces().then(parsedPlaces => {
+            const optionSelect = document.querySelector("#interest__form--place");
+            console.log(parsedPlaces);
+            parsedPlaces.forEach(place => {
+                const optionHTML = `<option value="${place.name}">${place.name}</option>`;
+                optionSelect.innerHTML += optionHTML;
+            });
+        });
+    },
+
+    renderInterestForm: () => {
+        const interestFormContainer = document.querySelector(".interests__form");
+        const interestForm = dom.createInterestForm();
+        dom.addToDOM(interestFormContainer, interestForm);
+        dom.createOptionsHTML();
     }
 });
 

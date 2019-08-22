@@ -1,3 +1,13 @@
+.interest__form--fields {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    border: 3px solid red;
+    background-color: whitesmoke;
+    margin-bottom: 30px;
+}
+
 .interests__container {
     display: flex;
     flex-wrap: wrap;
